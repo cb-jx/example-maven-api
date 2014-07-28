@@ -42,7 +42,6 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.13</version>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -50,19 +49,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-
-
-
-
 		</plugins>
 	</build>
-
-
 	<pluginRepositories>
 
 	</pluginRepositories>
@@ -78,17 +70,17 @@
 			<name>Internal Snapshots</name>
 			<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
-
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:ssh://git@bitbucket.org/caternberg/example-maven-api.git/</connection>
-
-		<developerConnection>scm:git:ssh://git@bitbucket.org/caternberg/example-maven-api.git</developerConnection>
+		<connection>scm:git:ssh://git@bitbucket.org/${scm.user}/${scm.repo}/</connection>
+		<developerConnection>scm:git:ssh://git@bitbucket.org/${scm.user}/${scm.repo}</developerConnection>
 		<url>https://bitbucket.org/caternberg/example-maven-api.git</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.openjpa>2.2.0</version.openjpa>
 		<nexus.host>nexus</nexus.host>
+		<scm.user>caternberg</scm.user>
+		<scm.repo>example-maven-api.git</scm.repo>
 	</properties>
 </project>

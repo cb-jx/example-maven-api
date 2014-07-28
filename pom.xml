@@ -82,8 +82,8 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:ssh://git@bitbucket.org/${scm.user}/${scm.repo}/</connection>
-		<developerConnection>scm:git:ssh://git@bitbucket.org/${scm.user}/${scm.repo}</developerConnection>
+		<connection>scm:git:ssh://${scm.user}@bitbucket.org/${scm.user}/${scm.repo}/</connection>
+		<developerConnection>scm:git:ssh://${scm.user}@bitbucket.org/${scm.user}/${scm.repo}</developerConnection>
 		<url>https://bitbucket.org/caternberg/example-maven-api.git</url>
 	  <tag>simple-0.0.1</tag>
   </scm>

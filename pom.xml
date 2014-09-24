@@ -45,9 +45,9 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-				    <version>2.5</version>
+					<version>2.5</version>
 					<configuration>
-<!-- 						<tagBase>svn://svn.ckc.de/smurfitkappa/tags</tagBase> -->
+						<!-- <tagBase>svn://svn.ckc.de/smurfitkappa/tags</tagBase> -->
 						<preparationGoals>clean install -DskipTests</preparationGoals>
 						<goals>deploy -DskipTests</goals>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
@@ -66,22 +66,49 @@
 			</plugin>
 		</plugins>
 	</build>
-	<pluginRepositories>
 
-	</pluginRepositories>
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Internal Releases</name>
-			<url>http://${nexus.host}:8081/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+	<profiles>
+		<profile>
+			<id>nexus</id>
+			<pluginRepositories>
+			</pluginRepositories>
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<name>Internal Releases</name>
+					<url>http://${nexus.host}:8081/nexus/content/repositories/releases</url>
+				</repository>
+				<snapshotRepository>
+					<uniqueVersion>false</uniqueVersion>
+					<id>snapshots</id>
+					<name>Internal Snapshots</name>
+					<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
+				</snapshotRepository>
+			</distributionManagement>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>artifactory</id>
+			<pluginRepositories>
+			</pluginRepositories>
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<name>Internal Releases</name>
+					<url>http://${nexus.host}:8081/nexus/content/repositories/releases</url>
+				</repository>
+				<snapshotRepository>
+					<uniqueVersion>false</uniqueVersion>
+					<id>snapshots</id>
+					<name>Internal Snapshots</name>
+					<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
 	<scm>
 		<connection>scm:git:ssh://git@bitbucket.org:${scm.user}/${scm.repo}/</connection>
 		<developerConnection>scm:git:ssh://git@bitbucket.org:${scm.user}/${scm.repo}</developerConnection>

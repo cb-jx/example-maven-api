@@ -12,8 +12,6 @@
       <username>admin</username>
       <id>snapshots</id>
     </server>
-</server>
-
   </servers>
   <mirrors>
     <mirror>

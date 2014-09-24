@@ -85,9 +85,6 @@
 					<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
 				</snapshotRepository>
 			</distributionManagement>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<profile>
 			<id>artifactory</id>
@@ -96,14 +93,14 @@
 			<distributionManagement>
 				<repository>
 					<id>releases</id>
-					<name>Internal Releases</name>
-					<url>http://${nexus.host}:8081/nexus/content/repositories/releases</url>
+					<name>artifactory-releases</name>
+					<url>http://artifactory:8081/artifactory/libs-release-local</url>
 				</repository>
 				<snapshotRepository>
 					<uniqueVersion>false</uniqueVersion>
 					<id>snapshots</id>
-					<name>Internal Snapshots</name>
-					<url>http://${nexus.host}:8081/nexus/content/repositories/snapshots</url>
+					<name>artifactory-snapshots</name>
+					<url>http://${artifactory.host}:8081/artifactory/libs-snapshot-local</url>
 				</snapshotRepository>
 			</distributionManagement>
 		</profile>
@@ -118,6 +115,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.openjpa>2.2.0</version.openjpa>
 		<nexus.host>nexus</nexus.host>
+		<artifactory.host>artifactory</artifactory.host>
 		<scm.user>caternberg</scm.user>
 		<scm.repo>example-maven-api.git</scm.repo>
 	</properties>

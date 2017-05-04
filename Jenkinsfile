@@ -4,9 +4,9 @@ node ('shared-agent') {
     env.PATH = "${jdk}/bin:${mvnHome}/bin:${env.PATH}"
 
   
-    stage ('build') {
+    stage concurrency: 2, name: 'build'
            sh "mvn clean install"
-    }
+    
 
 
 }

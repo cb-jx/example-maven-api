@@ -10,7 +10,7 @@ node ("shared-agent") {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
 
   // Mark the code build 'stage'....
-   stage 'Build'
+   stage concurrency: 2, name: 'build'
    // Run the maven build
 
     withEnv([

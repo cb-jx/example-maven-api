@@ -1,4 +1,4 @@
-node ("shared-agent") {
+node {
 
     def mvnHome = tool 'M3'
     def jdkHome = tool 'jdk7'

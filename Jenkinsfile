@@ -2,7 +2,7 @@ node {
 
     def mvnHome = tool 'M3'
     def jdkHome = tool 'jdk7'
-   // env.PATH = "${jdk}/bin:${mvnHome}/bin:${env.PATH}"
+
 
 
    // Mark the code checkout 'stage'....

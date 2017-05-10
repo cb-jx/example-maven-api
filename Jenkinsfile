@@ -15,8 +15,8 @@ node {
 
     stage concurrency: 2, name: "parallel"
       parallel (
-         phase1: { sh "echo p1; sleep 15s; echo phase1" },
-         phase2: { sh "echo p2; sleep 30s; echo phase2" }
+         phase1: { sh "echo p1; sleep 30; echo phase1" },
+         phase2: { sh "echo p2; sleep 50; echo phase2" }
        )
       sh "run this after both phases complete"
 

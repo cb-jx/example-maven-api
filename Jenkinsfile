@@ -5,8 +5,9 @@ node {
     def mvnHome = tool 'M3'
     def jdkHome = tool 'jdk7'
 
-  
 
+stage name: "checkout"
+    helper.checkoutRelativeTargetDir("https://caternberg@bitbucket.org/caternberg/example-maven-api.git", ".", "sharedlib") {
 
    stage  name: 'build'
     withEnv([

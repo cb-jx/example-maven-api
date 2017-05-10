@@ -6,15 +6,15 @@ node {
     def jdkHome = tool 'jdk7'
 
 
-stage name: "checkout"
-    helper.checkoutRelativeTargetDir("https://caternberg@bitbucket.org/caternberg/example-maven-api.git", ".", "sharedlib") {
+    stage name: "checkout"
+        helper.checkoutRelativeTargetDir("https://caternberg@bitbucket.org/caternberg/example-maven-api.git", ".", "sharedlib")
 
-   stage  name: 'build'
-    withEnv([
-              'PATH=' + "${jdkHome}/bin:${mvnHome}/bin:" + env.PATH,
-              "JAVA_HOME=${jdkHome}"
+    stage  name: 'build'
+        withEnv([
+                  'PATH=' + "${jdkHome}/bin:${mvnHome}/bin:" + env.PATH,
+                  "JAVA_HOME=${jdkHome}"
 
-         ]) {
-        sh "${mvnHome}/bin/mvn clean install"
-    }
+             ]) {
+            sh "${mvnHome}/bin/mvn clean install"
+        }
 }

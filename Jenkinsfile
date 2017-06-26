@@ -1,27 +1,24 @@
-import Helper
-
 node {
-    def helper = new Helper(steps)
-    def mvnHome = tool 'M3'
-    def jdkHome = tool 'jdk'
-
-
-
-   // Mark the code checkout 'stage'....
-   stage 'Checkout' {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
-        sh "echo checkout"
-    }
-  // Mark the code build 'stage'....
-   stage concurrency: 2, name: 'build'{
-       // Run the maven build
-
-        withEnv([
-                  'PATH=' + "${jdkHome}/bin:${mvnHome}/bin:" + env.PATH
-               //   "JAVA_HOME=${jdkHome}"
-
-             ]) {
-            sh "mvn clean install"
-        }
-    }
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+     // git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.
+      mvnHome = tool 'M3'
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }
+   stage('Results') {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      archive 'target/*.jar'
+   }
 }

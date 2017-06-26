@@ -12,7 +12,7 @@ public class SimpleImplTest {
 
     @Test
     public void testDoOne(){
-       assertTrue("isTrue",true);
+       assertTrue("isTrue?",true);
       // assertTrue("isTrue",false);
     }
 

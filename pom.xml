@@ -18,6 +18,14 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 
 
@@ -114,7 +122,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.openjpa>2.2.0</version.openjpa>
-		<nexus.host>nexus</nexus.host>
+		<nexus.host>localhost</nexus.host>
 		<artifactory.host>artifactory</artifactory.host>
 		<scm.user>caternberg</scm.user>
 		<scm.repo>example-maven-api.git</scm.repo>

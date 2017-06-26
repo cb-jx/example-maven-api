@@ -12,6 +12,6 @@ public class SimpleImplTest {
 
     @Test
     public void testDoOne(){
-       assertTrue(true,true)
+       assertTrue("isTrue",true);
     }
 }

@@ -7,10 +7,10 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by andi on 26.06.17.
  */
-@Test
+
 public class SimpleImplTest {
 
-
+    @Test
     public void testDoOne(){
        assertTrue(true,true)
     }

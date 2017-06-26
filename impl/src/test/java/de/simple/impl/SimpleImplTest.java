@@ -14,4 +14,9 @@ public class SimpleImplTest {
     public void testDoOne(){
        assertTrue("isTrue",true);
     }
+
+    @Test
+    public void testDoTwo(){
+        assertTrue("isTrue",true);
+    }
 }

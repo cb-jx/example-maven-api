@@ -3,7 +3,7 @@ import Helper
 node {
     def helper = new Helper(steps)
     def mvnHome = tool 'M3'
-  //  def jdkHome = tool 'jdk7'
+    def jdkHome = tool 'jdk'
 
 
 

@@ -8,13 +8,16 @@ node ("docker") {
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.
       mvnHome = tool 'M3'
+      jdkHome = tool 'jdk8'
    }
    stage('Build') {
       // Run the maven build
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      withEnv(['PATH=${jdk8}/bin:$PATH']) {
+         if (isUnix()) {
+            sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+         } else {
+            bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         }
       }
    }
    stage('Results') {

@@ -6,6 +6,7 @@ podTemplate(label: label) {
         // Run the maven build
 
          if (isUnix()) {
+           sh  "ls -l"
             sh "mvn -e -X  -Dmaven.test.failure.ignore clean package"
          } else {
             bat(/mvn -Dmaven.test.failure.ignore clean package/)

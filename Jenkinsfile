@@ -2,8 +2,8 @@ def label = "mypod-${UUID.randomUUID().toString()}"
 podTemplate(label: label) {
   node ("jenkins-maven") {
     stage('checkout'){
-      git branch:k8s,
-          url: https://github.com/cccaternberg/example-maven-api.git
+      git branch:"k8s",
+          url: 'https://github.com/cccaternberg/example-maven-api.git'
     }
     
     stage('Build') {

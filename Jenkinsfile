@@ -7,6 +7,7 @@ def runPL() {
    // body.delegate = pipelineParams
     //body()
 node ("maven-jdk-8") {
+   unstash 'ws'
    def mvnHome
  //  stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository

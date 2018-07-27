@@ -18,6 +18,7 @@ node ("maven-jdk-8") {
       // Run the maven build
 
          if (isUnix()) {
+            sh 'ls -l'
             sh "'mvn' -Dmaven.test.failure.ignore clean package"
          } else {
             bat(/"mvn" -Dmaven.test.failure.ignore clean package/)

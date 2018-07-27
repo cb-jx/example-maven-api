@@ -8,12 +8,12 @@ def run(Map parameters) {
     //body()
 node ("maven-jdk-8") {
    def mvnHome
-   stage('Preparation') { // for display purposes
+ //  stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
      // git 'https://github.com/jglick/simple-maven-project-with-tests.git'
      // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
 
-   }
+   //}
    stage('Build') {
       // Run the maven build
 

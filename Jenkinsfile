@@ -1,6 +1,6 @@
 
 
-def run(Map parameters) {
+def run() {
     // evaluate the body block, and collect configuration into the object
     //def pipelineParams= [:]
    // body.resolveStrategy = Closure.DELEGATE_FIRST
@@ -31,4 +31,4 @@ node ("maven-jdk-8") {
 }
 }
 
-return this
+

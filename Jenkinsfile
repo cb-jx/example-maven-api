@@ -1,6 +1,6 @@
 
 
-def call(Map pipelineParams) {
+def run(Map parameters) {
     // evaluate the body block, and collect configuration into the object
     //def pipelineParams= [:]
    // body.resolveStrategy = Closure.DELEGATE_FIRST
@@ -11,7 +11,7 @@ node ("maven-jdk-8") {
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
      // git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
+     // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://caternberg@bitbucket.org/caternberg/example-maven-api.git']]])
 
    }
    stage('Build') {

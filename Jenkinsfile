@@ -6,6 +6,8 @@ node ("maven-jdk-8") {
       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucketID', url: 'https://github.com/cccaternberg/example-maven-api.git']]])
 
    }
+   
+   
    stage('Build') {
       // Run the maven build
 

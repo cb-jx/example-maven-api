@@ -6,6 +6,8 @@
  mvn -s <PATH_TO_SETTINGS_CONF>/settings-artifactory.xml  clean deploy -Partifactory
 
 
+
+
  
   # deploy to artifactory
  mvn -s <PATH_TO_SETTINGS_CONF>/settings-nexus.xml  clean deploy -Pnexus

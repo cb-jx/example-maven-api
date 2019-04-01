@@ -1,4 +1,4 @@
- #Update the versions
+u #Update the versions
  mvn versions:set -DartifactId=api -DgroupId=de.simple -DnewVersion=1.0  -DoldVersion=0.0.1-SNAPSHOT
     
  
@@ -9,5 +9,5 @@
     
 
  
-  # deploy to artifactory
+  # deploy to nexus
  mvn -s <PATH_TO_SETTINGS_CONF>/settings-nexus.xml  clean deploy -Pnexus
